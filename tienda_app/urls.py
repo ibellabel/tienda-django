@@ -1,6 +1,7 @@
 from django.urls import path
 from .api.views import CompraAPIView
 from .views import CompraView, compra_rapida_fbv, CompraRapidaView, CompraRapidaServiceView
+from tienda_app.api.productos import ProductosAPIView
 
 urlpatterns = [
     path('compra/<int:libro_id>/', CompraView.as_view(), name='finalizar_compra'),
@@ -8,4 +9,5 @@ urlpatterns = [
     path('compra-rapida/<int:libro_id>/', compra_rapida_fbv, name='compra_rapida'),
     path('compra-rapida-cbv/<int:libro_id>/', CompraRapidaView.as_view(), name='compra_rapida_cbv'),
     path('compra-rapida-service/<int:libro_id>/', CompraRapidaServiceView.as_view(), name='compra_rapida_service'),
+    path('api/v1/productos/', ProductosAPIView.as_view(), name='api_productos'),
 ]
